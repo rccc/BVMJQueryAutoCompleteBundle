@@ -1,0 +1,8 @@
+parameters:
+     bvm_jqueryautocomplete.form.type.class: BVM\Bundle\JQueryAutoCompleteBundle\Form\Type\JQueryAutoCompleteType
+
+services:
+     bvm_jqueryautocomplete.form.type.jqueryautocomplete:
+         class: %bvm_jqueryautocomplete.form.type.class%
+         tags:
+            - { name: form.type, alias: bvm_jqueryautocomplete }
