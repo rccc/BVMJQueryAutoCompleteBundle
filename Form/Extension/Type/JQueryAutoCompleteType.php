@@ -1,16 +1,14 @@
 <?php
-namespace BSky\Bundle\JQueryAutoCompleteBundle\Form\Type;
+namespace BSky\Bundle\JQueryAutoCompleteBundle\Form\Extension\Type;
 
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilder;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\Exception\FormException;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-class JQueryAutoCompleteType extends AbstractType{
-    
-    
-    //route 
+class JQueryAutoCompleteType extends TextType
+{
     /**
      * {@inheritdoc}
      */
@@ -31,6 +29,9 @@ class JQueryAutoCompleteType extends AbstractType{
         $view->set('route', $form->getAttribute('route'));
     }
     
+    /**
+     * {@inheritdoc}
+     */
     public function getParent(array $options)
     {
         return 'text';
