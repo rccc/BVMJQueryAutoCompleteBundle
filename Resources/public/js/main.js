@@ -1,8 +1,8 @@
 jQuery(document).ready(function() {
-    jQuery(".bsky_jqueryautocomplete").autocomplete({
+    jQuery('.bsky_jqueryautocomplete').autocomplete({
         source: function(request, response){
             jQuery.ajax({
-                url: Routing.generate(jQuery(".bsky_jqueryautocomplete").data("route")),
+                url: Routing.generate(jQuery('.bsky_jqueryautocomplete').data('route')),
                 dataType: "json",
                 data: {
                     limit: 10,
