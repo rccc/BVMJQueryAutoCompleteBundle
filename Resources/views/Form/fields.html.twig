@@ -5,5 +5,5 @@
         {% set entity_id = "" %}
     {% endif %}
     <input class="bsky_jqueryautocomplete_id" type="hidden" {{ block('attributes') }} value="{{ entity_id }}" name="{{ full_name }}" />
-    <input class="bsky_jqueryautocomplete {{ attr.class }}" id="{{ id }}" placeholder="{{ attr.placeholder }}" data-route="{{ route }}" type="text" value="{{ value }}" required="required" name="auto" />
+    <input class="bsky_jqueryautocomplete {{ attr.class }}" id="{{ id }}" placeholder="{{ attr.placeholder }}" data-route="{{ route }}" type="text" value="{{ value }}" {{ block('attributes') }} name="auto" />
 {% endblock %}
