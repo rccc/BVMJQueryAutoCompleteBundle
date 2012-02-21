@@ -6,9 +6,19 @@ use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\Exception\FormException;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Doctrine\ORM\EntityManager;
+
+use BSky\Bundle\JQueryAutoCompleteBundle\DataTransformer\EntityToIdTransformer;
 
 class JQueryAutoCompleteType extends TextType
 {
+    protected $em;
+    
+    public function __construct(EntityManager $em)
+    {
+        $this->em = $em;
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -18,7 +28,24 @@ class JQueryAutoCompleteType extends TextType
              throw new FormException('The "route" parameter is mandatory');
         }
         
+        if (!isset($options['class'])){
+             throw new FormException('The "class" parameter is mandatory');
+        }
+        
+        $property_display = null;
+        
+        if (isset($options['property_display'])){
+             $property_display = $options['property_display'];
+        }
+        
         $builder->setAttribute('route', $options['route']);
+        
+        $builder->prependClientTransformer(new EntityToIdTransformer(
+            $this->em,
+            $options['class'],
+            $options['property'],
+            $property_display
+        ));
     }
     
     /**
@@ -42,7 +69,19 @@ class JQueryAutoCompleteType extends TextType
      */
     public function getDefaultOptions(array $options)
     {
-        return array('route' => $options['route']);
+        if(!isset($options['property'])){
+            $options['property'] = 'id';
+        }
+        
+        if(!isset($options['route'])){
+            throw new FormException('The "route" parameter is mandatory');
+        }
+        
+        if(!isset($options['class'])){
+            throw new FormException('The "class" parameter is mandatory');
+        }
+        
+        return $options;
     }
     
     /**

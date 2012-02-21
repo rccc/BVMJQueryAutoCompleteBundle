@@ -4,5 +4,7 @@ parameters:
 services:
     form.type.bsky_jqueryautocomplete:
         class: %bsky_jqueryautocomplete.form.type.class%
+        arguments:
+            - @doctrine.orm.default_entity_manager
         tags:
             - { name: form.type, alias: bsky_jqueryautocomplete }

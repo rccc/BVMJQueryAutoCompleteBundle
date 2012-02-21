@@ -1,9 +1,11 @@
 {% block bsky_jqueryautocomplete_widget %}
     {% if value.id is defined%}
         {% set entity_id = value.id %}
+        {% set entity_value = value.value %}
     {% else %}
         {% set entity_id = "" %}
+        {% set entity_value = "" %}
     {% endif %}
-    <input class="bsky_jqueryautocomplete_id" type="hidden" {{ block('attributes') }} value="{{ entity_id }}" name="{{ full_name }}" />
-    <input class="bsky_jqueryautocomplete {{ attr.class }}" id="{{ id }}" placeholder="{{ attr.placeholder }}" data-route="{{ route }}" type="text" value="{{ value }}" {{ block('attributes') }} name="auto" />
+    <input class="bsky_jqueryautocomplete_id" type="hidden" value="{{ entity_id }}" name="{{ full_name }}" />
+    <input class="bsky_jqueryautocomplete {% if attr.class is defined %} {{ attr.class }} {% endif %}" name="auto" {{ block('widget_attributes') }} data-route="{{ route }}" type="text" value="{{ entity_value }}"/>
 {% endblock %}
