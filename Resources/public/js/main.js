@@ -19,7 +19,7 @@ jQuery(document).ready(function() {
                     }
                 });
             },
-            minLength: 2,
+            minLength: 1,
             select: function(event, ui) {
                 jQuery(this).prev().val(ui.item.id); 
             }
