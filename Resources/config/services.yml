@@ -1,5 +1,5 @@
 parameters:
-     bsky_jqueryautocomplete.form.type.class: BSky\Bundle\JQueryAutoCompleteBundle\Form\Extension\Type\JQueryAutoCompleteType
+     bsky_jqueryautocomplete.form.type.class: BSky\JQueryAutoCompleteBundle\Form\Extension\Type\JQueryAutoCompleteType
      
 services:
     form.type.bsky_jqueryautocomplete:

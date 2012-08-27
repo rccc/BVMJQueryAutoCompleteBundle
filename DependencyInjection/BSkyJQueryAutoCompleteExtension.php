@@ -1,6 +1,6 @@
 <?php
 
-namespace BSky\Bundle\JQueryAutoCompleteBundle\DependencyInjection;
+namespace BSky\JQueryAutoCompleteBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;

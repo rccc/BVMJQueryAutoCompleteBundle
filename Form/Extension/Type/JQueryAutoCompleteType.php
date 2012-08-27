@@ -1,14 +1,14 @@
 <?php
-namespace BSky\Bundle\JQueryAutoCompleteBundle\Form\Extension\Type;
+namespace BSky\JQueryAutoCompleteBundle\Form\Extension\Type;
 
-use Symfony\Component\Form\FormBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\Exception\FormException;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Doctrine\ORM\EntityManager;
 
-use BSky\Bundle\JQueryAutoCompleteBundle\DataTransformer\EntityToIdTransformer;
+use BSky\JQueryAutoCompleteBundle\DataTransformer\EntityToIdTransformer;
 
 class JQueryAutoCompleteType extends TextType
 {
@@ -22,7 +22,7 @@ class JQueryAutoCompleteType extends TextType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilder $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         if (!isset($options['route'])){
              throw new FormException('The "route" parameter is mandatory');
@@ -51,7 +51,7 @@ class JQueryAutoCompleteType extends TextType
     /**
      * {@inheritdoc}
      */
-    public function buildView(FormView $view, FormInterface $form)
+    public function buildView(FormView $view, FormInterface $form, array $options)
     {
         $view->set('route', $form->getAttribute('route'));
     }
@@ -59,7 +59,7 @@ class JQueryAutoCompleteType extends TextType
     /**
      * {@inheritdoc}
      */
-    public function getParent(array $options)
+    public function getParent()
     {
         return 'text';
     }

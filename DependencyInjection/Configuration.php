@@ -1,6 +1,6 @@
 <?php
 
-namespace BSky\Bundle\JQueryAutoCompleteBundle\DependencyInjection;
+namespace BSky\JQueryAutoCompleteBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

@@ -1,6 +1,6 @@
 <?php
 
-namespace BSky\Bundle\JQueryAutoCompleteBundle\DataTransformer;
+namespace BSky\JQueryAutoCompleteBundle\DataTransformer;
 
 use Symfony\Component\Form\DataTransformerInterface;
 use Doctrine\ORM\EntityManager;
