@@ -85,8 +85,10 @@ class JQueryAutoCompleteType extends TextType
 
             return $options;
         };
+
+        $resolver->setDefaults($options);
         
-        return $options;
+        //return $options;
     }
     
     /**
