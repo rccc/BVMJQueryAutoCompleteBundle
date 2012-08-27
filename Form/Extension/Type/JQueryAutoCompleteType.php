@@ -68,8 +68,17 @@ class JQueryAutoCompleteType extends TextType
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    /*public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
+        $property = function (Options $options) {
+            (isset($options['property'])) ? $options['property'] : 'id';
+        };
+
+        $route = function (Options $options) {
+            (isset($options['route'])) ? $options['route'] : throw new FormException('The "route" parameter is mandatory');
+        };
+
+
         $options = function (Options $options) {
             if(!isset($options['property'])){
                 $options['property'] = 'id';
@@ -89,7 +98,7 @@ class JQueryAutoCompleteType extends TextType
         $resolver->setDefaults($options);
         
         //return $options;
-    }
+    }*/
     
     /**
      * {@inheritdoc}
