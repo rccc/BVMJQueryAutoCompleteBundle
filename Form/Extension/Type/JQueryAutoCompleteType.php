@@ -7,13 +7,14 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\Exception\FormException;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Doctrine\ORM\EntityManager;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 use BSky\JQueryAutoCompleteBundle\DataTransformer\EntityToIdTransformer;
 
 class JQueryAutoCompleteType extends TextType
 {
     protected $em;
-    
+
     public function __construct(EntityManager $em)
     {
         $this->em = $em;
@@ -27,19 +28,19 @@ class JQueryAutoCompleteType extends TextType
         if (!isset($options['route'])){
              throw new FormException('The "route" parameter is mandatory');
         }
-        
+
         if (!isset($options['class'])){
              throw new FormException('The "class" parameter is mandatory');
         }
-        
+
         $property_display = null;
-        
+
         if (isset($options['property_display'])){
              $property_display = $options['property_display'];
         }
-        
+
         $builder->setAttribute('route', $options['route']);
-        
+
         $builder->prependClientTransformer(new EntityToIdTransformer(
             $this->em,
             $options['class'],
@@ -47,7 +48,7 @@ class JQueryAutoCompleteType extends TextType
             $property_display
         ));
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -55,7 +56,7 @@ class JQueryAutoCompleteType extends TextType
     {
         $view->set('route', $form->getAttribute('route'));
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -63,23 +64,27 @@ class JQueryAutoCompleteType extends TextType
     {
         return 'text';
     }
-    
+
     /**
      * {@inheritdoc}
      */
-    public function getDefaultOptions(array $options)
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        if(!isset($options['property'])){
-            $options['property'] = 'id';
-        }
-        
-        if(!isset($options['route'])){
-            throw new FormException('The "route" parameter is mandatory');
-        }
-        
-        if(!isset($options['class'])){
-            throw new FormException('The "class" parameter is mandatory');
-        }
+        $options = function (Options $options) {
+            if(!isset($options['property'])){
+                $options['property'] = 'id';
+            }
+
+            if(!isset($options['route'])){
+                throw new FormException('The "route" parameter is mandatory');
+            }
+
+            if(!isset($options['class'])){
+                throw new FormException('The "class" parameter is mandatory');
+            }
+
+            return $options;
+        };
         
         return $options;
     }
