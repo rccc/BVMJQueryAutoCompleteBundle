@@ -1,0 +1,28 @@
+{
+    "name": "bsky/jqueryautocomplete-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony BSkyJQueryAutoCompleteBundle",
+    "keywords": ["jquery autocomplete"],
+    "homepage": "https://github.com/bzoote/BSkyJQueryAutoCompleteBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aldo Battaglia",
+            "email": "aldo@bzoote.com"
+        },
+        {
+            "name": "Stanislas Chollet",
+            "email": "stan@bzoote.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.2"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-0": { "BSky\\JQueryAutoCompleteBundle": "" }
+    },
+    "target-dir": "BSky/JQueryAutoCompleteBundle"
+}
