@@ -1,5 +1,5 @@
 {
-    "name": "bsky/jqueryautocomplete-bundle",
+    "name": "bzoote/bsky-jqueryautocomplete-bundle",
     "type": "symfony-bundle",
     "description": "Symfony BSkyJQueryAutoCompleteBundle",
     "keywords": ["jquery autocomplete"],
