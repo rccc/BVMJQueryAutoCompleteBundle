@@ -68,9 +68,9 @@ class JQueryAutoCompleteType extends TextType
     /**
      * {@inheritdoc}
      */
-    /*public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $property = function (Options $options) {
+        /*$property = function (Options $options) {
             (isset($options['property'])) ? $options['property'] : 'id';
         };
 
@@ -95,10 +95,17 @@ class JQueryAutoCompleteType extends TextType
             return $options;
         };
 
-        $resolver->setDefaults($options);
-        
+        $resolver->setDefaults($options);*/
+
+        $resolver->setDefaults(array(
+            'route' => '',
+            'property' => '',
+            'class' => '',
+            'property_display' => ''
+        ));
+
         //return $options;
-    }*/
+    }
     
     /**
      * {@inheritdoc}
