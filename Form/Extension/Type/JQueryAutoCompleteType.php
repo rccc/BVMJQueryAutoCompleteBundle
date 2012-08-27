@@ -99,9 +99,9 @@ class JQueryAutoCompleteType extends TextType
 
         $resolver->setDefaults(array(
             'route' => '',
-            'property' => '',
+            'property' => 'id',
             'class' => '',
-            'property_display' => ''
+            'property_display' => null
         ));
 
         //return $options;
