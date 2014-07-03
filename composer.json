@@ -15,9 +15,8 @@
             "email": "stan@bzoote.com"
         },
 	{
-	    "name": "rccc"
+	    "name": "rccc",
 	    "email": "rccc@dev.null"
-
 	}
     ],
     "minimum-stability": "dev",
