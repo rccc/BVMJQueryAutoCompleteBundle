@@ -1,5 +1,5 @@
 {
-    "name": "bzoote/bsky-jqueryautocomplete-bundle",
+    "name": "rccc/bvm-jqueryautocomplete-bundle",
     "type": "symfony-bundle",
     "description": "Symfony BSkyJQueryAutoCompleteBundle",
     "keywords": ["jquery autocomplete"],
@@ -13,7 +13,12 @@
         {
             "name": "Stanislas Chollet",
             "email": "stan@bzoote.com"
-        }
+        },
+	{
+	    "name": "rccc"
+	    "email": "rccc@dev.null"
+
+	}
     ],
     "minimum-stability": "dev",
     "require": {
