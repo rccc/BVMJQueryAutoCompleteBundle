@@ -1,6 +1,6 @@
 jQuery(document).ready(function() {
-    jQuery('body').on('bsky_jqueryautocomplete_init', function(){
-        jQuery('.bsky_jqueryautocomplete').autocomplete({
+    jQuery('body').on('rccc_jqueryautocomplete_init', function(){
+        jQuery('.rccc_jqueryautocomplete').autocomplete({
             source: function(request, response) {
                 jQuery.ajax({
                     url: Routing.generate(jQuery(this.element).data('route')),
@@ -25,5 +25,5 @@ jQuery(document).ready(function() {
             }
         });
     });
-    jQuery('body').trigger('bsky_jqueryautocomplete_init');
+    jQuery('body').trigger('rccc_jqueryautocomplete_init');
 });

@@ -1,4 +1,4 @@
-{% block bsky_jqueryautocomplete_widget %}
+{% block rccc_jqueryautocomplete_widget %}
     {% if value.id is defined%}
         {% set entity_id = value.id %}
         {% set entity_value = value.value %}
@@ -6,6 +6,6 @@
         {% set entity_id = "" %}
         {% set entity_value = "" %}
     {% endif %}
-    <input class="bsky_jqueryautocomplete_id" type="hidden" value="{{ entity_id }}" name="{{ full_name }}" />
-    <input class="bsky_jqueryautocomplete {% if attr.class is defined %} {{ attr.class }} {% endif %}" name="auto" {{ block('widget_attributes') }} data-route="{{ route }}" type="text" value="{{ entity_value }}"/>
+    <input class="rccc_jqueryautocomplete_id" type="hidden" value="{{ entity_id }}" name="{{ full_name }}" />
+    <input class="rccc_jqueryautocomplete {% if attr.class is defined %} {{ attr.class }} {% endif %}" name="auto" {{ block('widget_attributes') }} data-route="{{ route }}" type="text" value="{{ entity_value }}"/>
 {% endblock %}

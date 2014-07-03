@@ -1,10 +1,10 @@
 parameters:
-     bsky_jqueryautocomplete.form.type.class: BSky\JQueryAutoCompleteBundle\Form\Extension\Type\JQueryAutoCompleteType
+     rccc_jqueryautocomplete.form.type.class: Rccc\JQueryAutoCompleteBundle\Form\Extension\Type\JQueryAutoCompleteType
      
 services:
-    form.type.bsky_jqueryautocomplete:
-        class: %bsky_jqueryautocomplete.form.type.class%
+    form.type.rccc_jqueryautocomplete:
+        class: %rccc_jqueryautocomplete.form.type.class%
         arguments:
             - @doctrine.orm.default_entity_manager
         tags:
-            - { name: form.type, alias: bsky_jqueryautocomplete }
+            - { name: form.type, alias: rccc_jqueryautocomplete }

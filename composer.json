@@ -1,9 +1,9 @@
 {
     "name": "rccc/bvm-jqueryautocomplete-bundle",
     "type": "symfony-bundle",
-    "description": "Symfony BSkyJQueryAutoCompleteBundle",
+    "description": "Symfony RcccJQueryAutoCompleteBundle",
     "keywords": ["jquery autocomplete"],
-    "homepage": "https://github.com/bzoote/BSkyJQueryAutoCompleteBundle",
+    "homepage": "https://github.com/bzoote/RcccJQueryAutoCompleteBundle",
     "license": "MIT",
     "authors": [
         {
@@ -27,7 +27,7 @@
     "require-dev": {
     },
     "autoload": {
-        "psr-0": { "BSky\\JQueryAutoCompleteBundle": "" }
+        "psr-0": { "Rccc\\JQueryAutoCompleteBundle": "" }
     },
-    "target-dir": "BSky/JQueryAutoCompleteBundle"
+    "target-dir": "Rccc/JQueryAutoCompleteBundle"
 }

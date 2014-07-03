@@ -1,5 +1,5 @@
 <?php
-namespace BSky\JQueryAutoCompleteBundle\Form\Extension\Type;
+namespace Rccc\JQueryAutoCompleteBundle\Form\Extension\Type;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormView;
@@ -9,7 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-use BSky\JQueryAutoCompleteBundle\DataTransformer\EntityToIdTransformer;
+use Rccc\JQueryAutoCompleteBundle\DataTransformer\EntityToIdTransformer;
 
 class JQueryAutoCompleteType extends TextType
 {
@@ -112,6 +112,6 @@ class JQueryAutoCompleteType extends TextType
      */
     public function getName()
     {
-        return 'bsky_jqueryautocomplete';
+        return 'rccc_jqueryautocomplete';
     }
 }
