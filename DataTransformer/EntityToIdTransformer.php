@@ -6,7 +6,8 @@ use Symfony\Component\Form\DataTransformerInterface;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Form\Exception\TransformationFailedException;
 use Symfony\Component\Form\Exception\FormException;
-use Symfony\Component\Form\Util\PropertyPath;
+use Symfony\Component\PropertyAccess\PropertyAccess;
+use Symfony\Component\PropertyAccess\PropertyPath;
 
 class EntityToIdTransformer implements DataTransformerInterface 
 {
@@ -28,19 +29,24 @@ class EntityToIdTransformer implements DataTransformerInterface
      */
     public function transform($data)
     {
+
         if (null === $data) {
             return null;
         }
         
+        $propertyAccessor = PropertyAccess::getPropertyAccessor();
         $propertyPath = new PropertyPath($this->property);
         
-        $return = array('id' => $propertyPath->getValue($data));
+        $value = $propertyAccessor->getValue($data, $propertyPath);
+        
+        $return = array('id' => $value);
         
         if ($this->propertyDisplay == null) {
             $return['value'] = (string) $data;
         } else {
             $propertyDisplay = new PropertyPath($this->propertyDisplay);
-            $return['value'] = $propertyDisplay->getValue($data);
+            $value = $propertyAccessor->getValue($data, $propertyDisplay);
+            $return['value'] = $value;
         }
         
         return $return;

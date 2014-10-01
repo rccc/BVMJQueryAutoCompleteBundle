@@ -41,12 +41,12 @@ class JQueryAutoCompleteType extends TextType
 
         $builder->setAttribute('route', $options['route']);
 
-        $builder->prependClientTransformer(new EntityToIdTransformer(
+        $builder->addViewTransformer(new EntityToIdTransformer(
             $this->em,
             $options['class'],
             $options['property'],
             $property_display
-        ));
+        ), true);
     }
 
     /**
@@ -54,7 +54,7 @@ class JQueryAutoCompleteType extends TextType
      */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
-        $view->set('route', $form->getAttribute('route'));
+        $view->vars['route'] = $form->getConfig()->getAttribute('route'); 
     }
 
     /**
@@ -70,33 +70,6 @@ class JQueryAutoCompleteType extends TextType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        /*$property = function (Options $options) {
-            (isset($options['property'])) ? $options['property'] : 'id';
-        };
-
-        $route = function (Options $options) {
-            (isset($options['route'])) ? $options['route'] : throw new FormException('The "route" parameter is mandatory');
-        };
-
-
-        $options = function (Options $options) {
-            if(!isset($options['property'])){
-                $options['property'] = 'id';
-            }
-
-            if(!isset($options['route'])){
-                throw new FormException('The "route" parameter is mandatory');
-            }
-
-            if(!isset($options['class'])){
-                throw new FormException('The "class" parameter is mandatory');
-            }
-
-            return $options;
-        };
-
-        $resolver->setDefaults($options);*/
-
         $resolver->setDefaults(array(
             'route' => '',
             'property' => 'id',
@@ -107,6 +80,11 @@ class JQueryAutoCompleteType extends TextType
         //return $options;
     }
     
+    public function setSecurityContext($security_context)
+    {
+        $this->security_context  = $security_context;
+    }
+
     /**
      * {@inheritdoc}
      */
