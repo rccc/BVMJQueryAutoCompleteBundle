@@ -21,7 +21,8 @@ jQuery(document).ready(function() {
             },
             minLength: 1,
             select: function(event, ui) {
-                jQuery(this).prev().val(ui.item.id); 
+                var target = jQuery(this).parent().find('.rccc_jqueryautocomplete_id'); 
+                target.val(ui.item.id); 
             }
         });
     });
